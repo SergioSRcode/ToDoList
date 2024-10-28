@@ -43,6 +43,11 @@ class TodoList {
     this.todos = [];
   }
 
+  toString() {
+    console.log(`---- ${this.title} ----`);
+    return this.todos.map(todo => todo.toString()).join("\n");
+  }
+
   add(todo) {
     if (!(todo instanceof Todo)) throw TypeError(`Argument must be a Todo object`);
     this.todos.push(todo);
@@ -105,28 +110,30 @@ class TodoList {
 let list = new TodoList("Today's Todos");
 // console.log(list); // TodoList { title: "Today's Todos", todos: [] }
 
-// let todo1 = new Todo("Buy milk");
+let todo1 = new Todo("Buy milk");
 let todo2 = new Todo("Clean room");
 let todo3 = new Todo("Go to the gym");
-// let todo4 = new Todo("Go shopping");
+let todo4 = new Todo("Go shopping");
 let todo5 = new Todo("Feed the cats");
 let todo6 = new Todo("Study for Launch School");
 
-// list.add(todo1);
+list.add(todo1);
 list.add(todo2);
 list.add(todo3);
-// list.add(todo4);
+list.add(todo4);
 list.add(todo5);
 list.add(todo6);
-console.log(list);
 
-console.log(list.removeAt(2));
-console.log(list.removeAt(0));
-console.log(list.removeAt(1));
-console.log(list);
+todo1.markDone();
+todo4.markDone();
+todo1.markUndone();
 
-list.removeAt(100); // delete this line after testing it
+console.log(`${list}`);
 
+// console.log(list.removeAt(2));
+// console.log(list.removeAt(0));
+// console.log(list.removeAt(1));
+// console.log(list);
 
 // console.log(list);
 // console.log(list.size());
