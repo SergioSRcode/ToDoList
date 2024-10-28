@@ -44,8 +44,7 @@ class TodoList {
   }
 
   add(todo) {
-    if (!(todo instanceof Todo)) throw Error(`Argument must be a Todo object`);
-
+    if (!(todo instanceof Todo)) throw TypeError(`Argument must be a Todo object`);
     this.todos.push(todo);
   }
   // rest of class needs implementation
