@@ -51,13 +51,21 @@ class TodoList {
   size() {
     return this.todos.length;
   }
+
+  first() {
+    let todos = this.todos.slice();
+    return todos.shift();
+  }
+
+  last() {
+    let todos = this.todos.slice();
+    return todos.pop();
+  }
   // rest of class needs implementation
 }
 
 let list = new TodoList("Today's Todos");
-console.log(list); // TodoList { title: "Today's Todos", todos: [] }
-
-// Omitted code
+// console.log(list); // TodoList { title: "Today's Todos", todos: [] }
 
 let todo1 = new Todo("Buy milk");
 let todo2 = new Todo("Clean room");
@@ -68,5 +76,8 @@ list.add(todo1);
 list.add(todo2);
 list.add(todo3);
 list.add(todo4);
+// console.log(list);
+// console.log(list.size());
+console.log(list.first());
+console.log(list.last());
 console.log(list);
-console.log(list.size());
