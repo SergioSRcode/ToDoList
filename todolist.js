@@ -61,6 +61,17 @@ class TodoList {
     let todos = this.todos.slice();
     return todos.pop();
   }
+
+  itemAt(idx) {
+    this._validateIndex(idx);
+    return this.todos[idx];
+  }
+
+  _validateIndex(idx) {
+    if (!(idx in this.todos)) {
+      throw ReferenceError(`invalid index: ${idx}`);
+    }
+  }
   // rest of class needs implementation
 }
 
@@ -78,6 +89,13 @@ list.add(todo3);
 list.add(todo4);
 // console.log(list);
 // console.log(list.size());
-console.log(list.first());
-console.log(list.last());
-console.log(list);
+// console.log(list.first());
+// console.log(list.last());
+// console.log(list);
+// console.log(list.itemAt(1));
+// Omitted code
+
+// console.log(list.itemAt("a")); // delete this line after testing it
+// Omitted code
+
+// console.log(list.itemAt(55)); // delete this line after testing it
