@@ -84,7 +84,14 @@ class TodoList {
   isDone() {
     return this.todos.every(todo => todo.isDone());
   }
-  // rest of class needs implementation
+
+  shift() {
+    return this.todos.shift();
+  }
+
+  pop() {
+    return this.todos.pop();
+  }
 }
 
 let list = new TodoList("Today's Todos");
