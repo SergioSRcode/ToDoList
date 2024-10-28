@@ -47,6 +47,10 @@ class TodoList {
     if (!(todo instanceof Todo)) throw TypeError(`Argument must be a Todo object`);
     this.todos.push(todo);
   }
+
+  size() {
+    return this.todos.length;
+  }
   // rest of class needs implementation
 }
 
@@ -65,3 +69,4 @@ list.add(todo2);
 list.add(todo3);
 list.add(todo4);
 console.log(list);
+console.log(list.size());
