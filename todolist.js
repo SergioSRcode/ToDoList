@@ -92,20 +92,40 @@ class TodoList {
   pop() {
     return this.todos.pop();
   }
+
+  removeAt(idx) {
+    let removedTodo = this.itemAt(idx);
+    let updatedTodos = this.todos.filter((_, index) => index !== idx);
+    this.todos = updatedTodos;
+
+    return removedTodo;
+  }
 }
 
 let list = new TodoList("Today's Todos");
 // console.log(list); // TodoList { title: "Today's Todos", todos: [] }
 
-let todo1 = new Todo("Buy milk");
+// let todo1 = new Todo("Buy milk");
 let todo2 = new Todo("Clean room");
 let todo3 = new Todo("Go to the gym");
-let todo4 = new Todo("Go shopping");
+// let todo4 = new Todo("Go shopping");
+let todo5 = new Todo("Feed the cats");
+let todo6 = new Todo("Study for Launch School");
 
-list.add(todo1);
+// list.add(todo1);
 list.add(todo2);
 list.add(todo3);
-list.add(todo4);
+// list.add(todo4);
+list.add(todo5);
+list.add(todo6);
+console.log(list);
+
+console.log(list.removeAt(2));
+console.log(list.removeAt(0));
+console.log(list.removeAt(1));
+console.log(list);
+
+list.removeAt(100); // delete this line after testing it
 
 
 // console.log(list);
