@@ -72,6 +72,14 @@ class TodoList {
       throw ReferenceError(`invalid index: ${idx}`);
     }
   }
+
+  markDoneAt(idx) {
+    this.itemAt(idx).markDone();
+  }
+
+  markUndoneAt(idx) {
+    this.itemAt(idx).markUndone();
+  }
   // rest of class needs implementation
 }
 
@@ -87,6 +95,8 @@ list.add(todo1);
 list.add(todo2);
 list.add(todo3);
 list.add(todo4);
+
+
 // console.log(list);
 // console.log(list.size());
 // console.log(list.first());
