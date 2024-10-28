@@ -80,6 +80,10 @@ class TodoList {
   markUndoneAt(idx) {
     this.itemAt(idx).markUndone();
   }
+
+  isDone() {
+    return this.todos.every(todo => todo.isDone());
+  }
   // rest of class needs implementation
 }
 
@@ -109,3 +113,15 @@ list.add(todo4);
 // Omitted code
 
 // console.log(list.itemAt(55)); // delete this line after testing it
+// Omitted code
+
+// console.log(list.isDone()); // false
+
+// list.markDoneAt(0);
+// list.markDoneAt(1);
+// list.markDoneAt(2);
+// list.markDoneAt(3);
+// console.log(list.isDone()); // true
+
+// list.markUndoneAt(2);
+// console.log(list.isDone()); // false
