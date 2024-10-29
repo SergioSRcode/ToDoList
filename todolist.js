@@ -105,10 +105,14 @@ class TodoList {
 
     return removedTodo;
   }
+
+  forEach(callback, thisArg) {
+    this.todos.forEach(callback, thisArg);
+  }
 }
 
-let list = new TodoList("Today's Todos");
-// console.log(list); // TodoList { title: "Today's Todos", todos: [] }
+
+// Omitted code
 
 let todo1 = new Todo("Buy milk");
 let todo2 = new Todo("Clean room");
@@ -116,6 +120,7 @@ let todo3 = new Todo("Go to the gym");
 let todo4 = new Todo("Go shopping");
 let todo5 = new Todo("Feed the cats");
 let todo6 = new Todo("Study for Launch School");
+let list = new TodoList("Today's Todos");
 
 list.add(todo1);
 list.add(todo2);
@@ -124,38 +129,4 @@ list.add(todo4);
 list.add(todo5);
 list.add(todo6);
 
-todo1.markDone();
-todo4.markDone();
-todo1.markUndone();
-
-console.log(`${list}`);
-
-// console.log(list.removeAt(2));
-// console.log(list.removeAt(0));
-// console.log(list.removeAt(1));
-// console.log(list);
-
-// console.log(list);
-// console.log(list.size());
-// console.log(list.first());
-// console.log(list.last());
-// console.log(list);
-// console.log(list.itemAt(1));
-// Omitted code
-
-// console.log(list.itemAt("a")); // delete this line after testing it
-// Omitted code
-
-// console.log(list.itemAt(55)); // delete this line after testing it
-// Omitted code
-
-// console.log(list.isDone()); // false
-
-// list.markDoneAt(0);
-// list.markDoneAt(1);
-// list.markDoneAt(2);
-// list.markDoneAt(3);
-// console.log(list.isDone()); // true
-
-// list.markUndoneAt(2);
-// console.log(list.isDone()); // false
+list.forEach(todo => console.log(todo.toString()));
