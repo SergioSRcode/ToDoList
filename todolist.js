@@ -135,6 +135,10 @@ class TodoList {
   markDone(title) {
     return this.findByTitle(title).markDone();
   }
+
+  markAllDone() {
+    this.forEach(todo => todo.markDone());
+  }
 }
 
 
@@ -163,5 +167,6 @@ todo5.markDone();
 // console.log(list.findByTitle("Clean Room"));
 console.log(list.allDone());
 // console.log(list.allNotDone());
-console.log(list.markDone("Clean room"));
+// console.log(list.markDone("Clean room"));
+console.log(list.markAllDone());
 console.log(list.allDone());
