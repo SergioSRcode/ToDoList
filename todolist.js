@@ -72,12 +72,6 @@ class TodoList {
     return this.todos[idx];
   }
 
-  _validateIndex(idx) {
-    if (!(idx in this.todos)) {
-      throw ReferenceError(`invalid index: ${idx}`);
-    }
-  }
-
   markDoneAt(idx) {
     this.itemAt(idx).markDone();
   }
@@ -111,13 +105,23 @@ class TodoList {
   }
 
   filter(callback, thisArg) {
-    // return this.todos.filter(callback, thisArg);
     let filteredList = new TodoList(`filtered ${this.title}`);
+
     this.forEach(todo => {
       if (callback(todo)) filteredList.add(todo);
     }, thisArg);
 
     return filteredList;
+  }
+
+  _validateIndex(idx) {
+    if (!(idx in this.todos)) {
+      throw ReferenceError(`invalid index: ${idx}`);
+    }
+  }
+
+  findByTitle(title) {
+    return this.filter(todo => todo.title === title).first();
   }
 }
 
@@ -136,10 +140,12 @@ list.add(todo3);
 list.add(todo4);
 list.add(todo5);
 list.add(todo6);
-todo1.markDone();
-todo5.markDone();
+// todo1.markDone();
+// todo5.markDone();
 
-let doneTodos = list.filter(todo => todo.isDone());
-console.log(doneTodos);
+// let doneTodos = list.filter(todo => todo.isDone());
+// console.log(doneTodos);
 
-console.log(list.filter(todo => todo.isDone()).first());
+// console.log(list.filter(todo => todo.isDone()).first());
+console.log(list.findByTitle("Clean room"));
+console.log(list.findByTitle("Clean Room"));
