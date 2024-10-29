@@ -109,10 +109,18 @@ class TodoList {
   forEach(callback, thisArg) {
     this.todos.forEach(callback, thisArg);
   }
+
+  filter(callback, thisArg) {
+    // return this.todos.filter(callback, thisArg);
+    let filteredList = new TodoList(`filtered ${this.title}`);
+    this.forEach(todo => {
+      if (callback(todo)) filteredList.add(todo);
+    }, thisArg);
+
+    return filteredList;
+  }
 }
 
-
-// Omitted code
 
 let todo1 = new Todo("Buy milk");
 let todo2 = new Todo("Clean room");
@@ -128,5 +136,10 @@ list.add(todo3);
 list.add(todo4);
 list.add(todo5);
 list.add(todo6);
+todo1.markDone();
+todo5.markDone();
 
-list.forEach(todo => console.log(todo.toString()));
+let doneTodos = list.filter(todo => todo.isDone());
+console.log(doneTodos);
+
+console.log(list.filter(todo => todo.isDone()).first());
