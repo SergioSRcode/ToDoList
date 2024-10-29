@@ -133,7 +133,8 @@ class TodoList {
   }
 
   markDone(title) {
-    return this.findByTitle(title).markDone();
+    let todo = this.findByTitle(title);
+    if (todo !== undefined) todo.markDone();
   }
 
   markAllDone() {
