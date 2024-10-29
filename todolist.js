@@ -143,6 +143,10 @@ class TodoList {
   markAllUndone() {
     this.forEach(todo => todo.markUndone());
   }
+
+  toArray() {
+    return this.todos.slice();
+  }
 }
 
 
@@ -174,6 +178,8 @@ todo5.markDone();
 // console.log(list.markDone("Clean room"));
 // console.log(list.markAllDone());
 // console.log(list.allDone());
-console.log(list.markAllUndone());
-console.log(list.allDone());
-console.log(list.allNotDone());
+// console.log(list.markAllUndone());
+// console.log(list.allDone());
+// console.log(list.allNotDone());
+console.log(list.toArray());
+console.log(list.toArray() === list.todos);  // false
