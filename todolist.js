@@ -123,6 +123,14 @@ class TodoList {
   findByTitle(title) {
     return this.filter(todo => todo.title === title).first();
   }
+
+  allDone() {
+    return this.filter(todo => todo.isDone());
+  }
+
+  allNotDone() {
+    return this.filter(todo => !todo.isDone());
+  }
 }
 
 
@@ -140,12 +148,14 @@ list.add(todo3);
 list.add(todo4);
 list.add(todo5);
 list.add(todo6);
-// todo1.markDone();
-// todo5.markDone();
+todo1.markDone();
+todo5.markDone();
 
 // let doneTodos = list.filter(todo => todo.isDone());
 // console.log(doneTodos);
 
 // console.log(list.filter(todo => todo.isDone()).first());
-console.log(list.findByTitle("Clean room"));
-console.log(list.findByTitle("Clean Room"));
+// console.log(list.findByTitle("Clean room"));
+// console.log(list.findByTitle("Clean Room"));
+// console.log(list.allDone());
+// console.log(list.allNotDone());
