@@ -131,6 +131,10 @@ class TodoList {
   allNotDone() {
     return this.filter(todo => !todo.isDone());
   }
+
+  markDone(title) {
+    return this.findByTitle(title).markDone();
+  }
 }
 
 
@@ -157,5 +161,7 @@ todo5.markDone();
 // console.log(list.filter(todo => todo.isDone()).first());
 // console.log(list.findByTitle("Clean room"));
 // console.log(list.findByTitle("Clean Room"));
-// console.log(list.allDone());
+console.log(list.allDone());
 // console.log(list.allNotDone());
+console.log(list.markDone("Clean room"));
+console.log(list.allDone());
