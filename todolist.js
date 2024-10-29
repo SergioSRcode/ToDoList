@@ -139,6 +139,10 @@ class TodoList {
   markAllDone() {
     this.forEach(todo => todo.markDone());
   }
+
+  markAllUndone() {
+    this.forEach(todo => todo.markUndone());
+  }
 }
 
 
@@ -165,8 +169,11 @@ todo5.markDone();
 // console.log(list.filter(todo => todo.isDone()).first());
 // console.log(list.findByTitle("Clean room"));
 // console.log(list.findByTitle("Clean Room"));
-console.log(list.allDone());
+// console.log(list.allDone());
 // console.log(list.allNotDone());
 // console.log(list.markDone("Clean room"));
-console.log(list.markAllDone());
+// console.log(list.markAllDone());
+// console.log(list.allDone());
+console.log(list.markAllUndone());
 console.log(list.allDone());
+console.log(list.allNotDone());
